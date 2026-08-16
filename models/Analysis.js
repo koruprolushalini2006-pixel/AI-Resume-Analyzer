@@ -1,5 +1,14 @@
 const mongoose = require('mongoose');
 
+const interviewQuestionSchema = new mongoose.Schema(
+  {
+    question: { type: String, required: true },
+    category: { type: String, default: 'General' },
+    tip: { type: String, default: '' },
+  },
+  { _id: false }
+);
+
 const analysisSchema = new mongoose.Schema(
   {
     user: {
@@ -50,6 +59,10 @@ const analysisSchema = new mongoose.Schema(
     },
     grammarIssues: {
       type: [String],
+      default: [],
+    },
+    interviewQuestions: {
+      type: [interviewQuestionSchema],
       default: [],
     },
   },

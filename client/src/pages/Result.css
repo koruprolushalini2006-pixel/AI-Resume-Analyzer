@@ -1,0 +1,45 @@
+/* Add these rules to your existing Result.css */
+
+.job-match-score {
+    margin-top: 8px;
+    font-size: 14px;
+    color: #475569;
+}
+
+.interview-questions {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 10px;
+}
+
+.interview-question-card {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 14px 16px;
+}
+
+.question-category {
+    display: inline-block;
+    background: #2563eb;
+    color: white;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 999px;
+    margin-bottom: 8px;
+}
+
+.question-text {
+    font-weight: 600;
+    color: #1f2937;
+    margin-bottom: 6px;
+}
+
+.question-tip {
+    font-size: 13px;
+    color: #64748b;
+    font-style: italic;
+}

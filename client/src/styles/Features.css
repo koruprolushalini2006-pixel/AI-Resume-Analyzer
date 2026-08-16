@@ -1,0 +1,25 @@
+.features {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin: 80px auto;
+  flex-wrap: wrap;
+}
+
+.card {
+  width: 280px;
+  padding: 25px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0,0,0,.08);
+  text-align: center;
+}
+
+.card h3 {
+  color: #2563eb;
+  margin-bottom: 15px;
+}
+
+.card p {
+  color: #555;
+}

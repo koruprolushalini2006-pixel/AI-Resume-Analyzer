@@ -14,7 +14,14 @@ const buildPrompt = (resumeText, jobDescription) => {
   "softSkills": string[] (soft skills found in the resume),
   "missingSkills": string[] (important skills missing relative to the job description or the candidate's apparent target role; empty array if not determinable),
   "suggestions": string[] (specific, actionable improvements for the resume),
-  "grammarIssues": string[] (grammar, clarity, or readability issues found; empty array if none)
+  "grammarIssues": string[] (grammar, clarity, or readability issues found; empty array if none),
+  "interviewQuestions": [
+    {
+      "question": string (a likely interview question based on this candidate's resume and target role),
+      "category": string (one of: "Technical", "Behavioral", "Project-based", "Role-specific"),
+      "tip": string (a short 1-2 sentence tip on how to approach answering this specific question well)
+    }
+  ] (generate exactly 6 realistic interview questions: a mix of technical, behavioral, and project-based questions tailored to this candidate's actual skills and experience)
 }
 
 Resume text:
@@ -57,6 +64,16 @@ const analyzeResume = async (resumeText, jobDescription = '') => {
     throw new ApiError(502, 'Failed to parse AI analysis response as JSON');
   }
 
+  const interviewQuestions = Array.isArray(parsed.interviewQuestions)
+    ? parsed.interviewQuestions
+        .filter((q) => q && typeof q.question === 'string')
+        .map((q) => ({
+          question: q.question,
+          category: q.category || 'General',
+          tip: q.tip || '',
+        }))
+    : [];
+
   return {
     atsScore: Number(parsed.atsScore) || 0,
     jobMatchScore: Number(parsed.jobMatchScore) || 0,
@@ -66,6 +83,7 @@ const analyzeResume = async (resumeText, jobDescription = '') => {
     missingSkills: Array.isArray(parsed.missingSkills) ? parsed.missingSkills : [],
     suggestions: Array.isArray(parsed.suggestions) ? parsed.suggestions : [],
     grammarIssues: Array.isArray(parsed.grammarIssues) ? parsed.grammarIssues : [],
+    interviewQuestions,
   };
 };
 
