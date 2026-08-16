@@ -1,9 +1,69 @@
-/* Add these rules to your existing Result.css */
+﻿.result-container {
+    min-height: 100vh;
+    background: #f5f7fb;
+    display: flex;
+    justify-content: center;
+    padding: 60px 20px;
+}
+
+.result-card {
+    width: 100%;
+    max-width: 700px;
+    background: white;
+    border-radius: 15px;
+    padding: 40px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.10);
+}
+
+.result-card h1 {
+    text-align: center;
+    color: #1f2937;
+    margin-bottom: 25px;
+}
+
+.score-box {
+    background: #eef2ff;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.score-box h2 {
+    color: #1f2937;
+    margin-bottom: 8px;
+}
+
+.score-box h1 {
+    color: #16a34a;
+    font-size: 40px;
+    margin: 0;
+}
 
 .job-match-score {
     margin-top: 8px;
     font-size: 14px;
     color: #475569;
+}
+
+.section {
+    margin-bottom: 22px;
+}
+
+.section h3 {
+    color: #1f2937;
+    margin-bottom: 10px;
+}
+
+.section p {
+    color: #374151;
+    line-height: 1.6;
+}
+
+.section ul {
+    padding-left: 20px;
+    color: #374151;
+    line-height: 1.6;
 }
 
 .interview-questions {
@@ -42,4 +102,22 @@
     font-size: 13px;
     color: #64748b;
     font-style: italic;
+}
+
+.back-btn {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    margin-top: 15px;
+    border: none;
+    border-radius: 8px;
+    background: #2563eb;
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.back-btn:hover {
+    background: #1d4ed8;
 }
